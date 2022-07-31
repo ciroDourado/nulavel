@@ -66,7 +66,7 @@ defmodule Nulavel do
 
   Caso seja nula nada acontece, e o erro original é repassado
   """
-  def e_entao(container, acao) do
+  def e_entao(_container, _acao) do
     # case container.valor do
     #   nil -> container
     #   _   -> acao.(container.valor)
@@ -80,7 +80,7 @@ defmodule Nulavel do
 
   Caso não seja nula nada acontece, e o container original é repassado
   """
-  def ou_entao(container, novo) do
+  def ou_entao(_container, _novo) do
     # case container.valor do
     #   nil -> novo
     #   _   -> container
