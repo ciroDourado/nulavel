@@ -66,12 +66,11 @@ defmodule Nulavel do
 
   Caso seja nula nada acontece, e o erro original é repassado
   """
-  def e_entao(_container, _acao) do
-    # case container.valor do
-    #   nil -> container
-    #   _   -> acao.(container.valor)
-    # end
-    ok?(nil)
+  def e_entao(container, acao) do
+    case container.valor do
+      nil -> container
+      _   -> acao.(container.valor)
+    end
   end
 
 
