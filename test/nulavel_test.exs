@@ -30,4 +30,25 @@ defmodule NulavelTest do
     assert resultado.valor == nil
   end
 
+  test "Parar na primeira operação que retorna um erro" do
+    recebe_um = fn numero ->
+      case numero do
+        1 -> ok(numero)
+        _ -> erro("Não é 1")
+      end
+    end
+
+    recebe_tres = fn numero ->
+      case numero do
+        3 -> ok(numero)
+        _ -> erro("Não é 3")
+      end
+    end
+
+    resultado = Nulavel.ok(2)
+    |> Nulavel.e_entao(recebe_um)
+    |> Nulavel.e_entao(recebe_tres)
+    assert resultado.mensagem == "Não é 1"
+  end
+
 end
