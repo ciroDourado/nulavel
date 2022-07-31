@@ -3,13 +3,11 @@ defmodule NulavelTest do
   doctest Nulavel
 
   test "Nulo não pode ser containerizado" do
-    # assert nil |> Nulavel.ok? |> Nulavel.e_erro
-    assert(false, "Não implementado")
+    assert nil |> Nulavel.ok? |> Nulavel.e_erro
   end
 
   test "Não-nulo pode ser containerizado" do
-    # assert 1 |> Nulavel.ok? |> Nulavel.e_ok
-    assert(false, "Não implementado")
+    assert 1 |> Nulavel.ok? |> Nulavel.e_ok
   end
 
 end
