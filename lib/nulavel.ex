@@ -54,6 +54,7 @@ defmodule Nulavel do
     #   nil -> container
     #   _   -> acao.(container.valor) |> ok
     # end
+    ok?(nil)
   end
 
 
@@ -71,6 +72,7 @@ defmodule Nulavel do
     #   nil -> container
     #   _   -> acao.(container.valor)
     # end
+    ok?(nil)
   end
 
 
@@ -84,6 +86,7 @@ defmodule Nulavel do
     #   nil -> container
     #   _   -> acao.(container.valor)
     # end
+    ok?(nil)
   end
 
 
