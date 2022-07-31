@@ -6,9 +6,11 @@ defmodule NulavelTest do
     assert nil |> Nulavel.ok? |> Nulavel.e_erro
   end
 
+
   test "Não-nulo pode ser containerizado" do
     assert 1 |> Nulavel.ok? |> Nulavel.e_ok
   end
+
 
   test "Operação apenas em não-nulos" do
     dobrar    = fn numero -> numero * 2 end
@@ -20,6 +22,7 @@ defmodule NulavelTest do
     assert resultado.valor == 6
   end
 
+
   test "Sem operação em valores nulos" do
     dobrar    = fn numero -> numero * 2 end
     triplicar = fn numero -> numero * 3 end
@@ -29,6 +32,7 @@ defmodule NulavelTest do
 
     assert resultado.valor == nil
   end
+
 
   test "Parar na primeira operação que retorna um erro" do
     recebe_um = fn numero ->
@@ -49,6 +53,23 @@ defmodule NulavelTest do
     |> Nulavel.e_entao(recebe_um)
     |> Nulavel.e_entao(recebe_tres)
     assert resultado.mensagem == "Não é 1"
+  end
+
+
+  test "Modificar container quando houver falha" do
+    recebe_um = fn numero ->
+      case numero do
+        1 -> Nulavel.ok(numero)
+        _ -> Nulavel.erro("Não é 1")
+      end
+    end
+
+    passe_tres = Nulavel.ok(3)
+
+    resultado = Nulavel.ok(2)
+    |> Nulavel.e_entao(recebe_um)
+    |> Nulavel.ou_entao(passe_tres)
+    assert resultado == %{ valor: 3, mensagem: "ok" }
   end
 
 end
