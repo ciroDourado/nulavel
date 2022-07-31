@@ -79,12 +79,11 @@ defmodule Nulavel do
 
   Caso não seja nula nada acontece, e o container original é repassado
   """
-  def ou_entao(_container, _novo) do
-    # case container.valor do
-    #   nil -> novo
-    #   _   -> container
-    # end
-    ok?(nil)
+  def ou_entao(container, novo) do
+    case container.valor do
+      nil -> novo
+      _   -> container
+    end
   end
 
 
