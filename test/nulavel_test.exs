@@ -33,15 +33,15 @@ defmodule NulavelTest do
   test "Parar na primeira operação que retorna um erro" do
     recebe_um = fn numero ->
       case numero do
-        1 -> ok(numero)
-        _ -> erro("Não é 1")
+        1 -> Nulavel.ok(numero)
+        _ -> Nulavel.erro("Não é 1")
       end
     end
 
     recebe_tres = fn numero ->
       case numero do
-        3 -> ok(numero)
-        _ -> erro("Não é 3")
+        3 -> Nulavel.ok(numero)
+        _ -> Nulavel.erro("Não é 3")
       end
     end
 
