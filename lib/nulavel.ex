@@ -91,7 +91,7 @@ defmodule Nulavel do
   Verifica se um container é inválido
   """
   def e_erro(container) do
-    # resultado.valor == nil
+    container.valor == nil
   end
 
 
@@ -99,6 +99,6 @@ defmodule Nulavel do
   Verifica se um container é válido
   """
   def e_ok(container) do
-    # resultado.valor != nil
+    container.valor != nil
   end
 end
